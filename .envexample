@@ -1,0 +1,22 @@
+# APP_HOST=''
+APP_PORT=6001
+
+GITLAB__CLIENTID=''
+GITLAB__CLIENTSECRET=''
+GITLAB__CALLBACKPATH='/callback-github'
+
+PG_DB='natti-events_db'
+PG_USER='natti-events-pguser'
+PG_PASS=''
+#POSTGRES_PORT=''
+
+CORS__ROOTDOMAIN=''
+CORS__ISLOCAL='true'
+
+FILESTORAGE__TYPE=''
+
+AWS_ACCESS_KEY_ID=''
+AWS_SECRET_ACCESS_KEY=''
+AWS_REGION=''
+
+CONNECTIONSTRINGS__DEFAULT="Server=natti-events.postgres;Port=5432;Database=${PG_DB};User Id=${PG_USER};Password=${PG_PASS};"

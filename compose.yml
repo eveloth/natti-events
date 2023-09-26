@@ -1,0 +1,42 @@
+version: '3.8'
+
+networks:
+  natti-events:
+    name: natti-events
+
+volumes:
+  natti-events-pgsql:
+  natti-events-redis:
+
+services:
+  natti-events.api:
+    build:
+      context: ./
+      dockerfile: src/NattiEvents/Dockerfile
+    restart: unless-stopped
+    depends_on: 
+      - natti-events.postgres
+    ports:
+      - "${API_HOST:-127.0.0.1}:${APP_PORT}:80"
+    networks:
+      - natti-events
+    env_file:
+      - .env
+
+  natti-events.postgres:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: "${PG_DB:-natti-events_db}"
+      POSTGRES_USER: "${PG_USER}"
+      POSTGRES_PASSWORD: "${PG_PASS}"
+      PGDATA: "/var/lib/pgsql/data"
+    volumes:
+      - natti-events-pgsql:/var/lib/pgsql/data
+    ports:
+      - "${POSTGRES_HOST:-127.0.0.1}:${POSTGRES_PORT}:5432"
+    networks:
+      - natti-events
+    env_file:
+      - .env
+
