@@ -1,9 +1,9 @@
 # APP_HOST=''
 APP_PORT=6001
 
-GITLAB__CLIENTID=''
-GITLAB__CLIENTSECRET=''
-GITLAB__CALLBACKPATH='/callback-github'
+GITHUB__CLIENTID=''
+GITHUB__CLIENTSECRET=''
+GITHUB__CALLBACKPATH='/callback-github'
 
 PG_DB='natti-events_db'
 PG_USER='natti-events-pguser'

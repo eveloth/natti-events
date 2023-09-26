@@ -28,4 +28,4 @@ app.UseAuthorization();
 
 app.MapGet("/", () => "Hello World!");
 
-app.RunAsync();
+await app.RunAsync();
